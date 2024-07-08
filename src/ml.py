@@ -11,7 +11,7 @@ import numpy as np
 
 app = FastAPI()
 
-df1 = pd.read_csv('movie_rec.csv')
+df1 = pd.read_csv('data/movie_rec.csv')
 
 # Vectorizzazione TF-IDF
 vectorizer = TfidfVectorizer()
