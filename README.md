@@ -48,20 +48,12 @@ Instalar las dependencias
 	pip install -r requirements.txt
 
 ### Estructura del Proyecto
-**data/**: Contiene los archivos de datos utilizados en el proyecto.
-**notebooks/**: Incluye los notebooks de Jupyter con el análisis y modelos.
-**src/**: Código fuente del proyecto, incluyendo scripts y módulos.
-**reports/**: Guarda los informes y visualizaciones generados.
-**README.md**: Archivo de documentación del proyecto.
-
-### Uso y Ejecución
-Para ejecutar el análisis de ventas, abrir el notebook 
-ventas_analisis.ipynb 
-en la carpeta notebooks/.
-El notebook guiará a través de las diferentes etapas del análisis, incluyendo carga de datos, visualizaciones y modelado.
-Para generar un informe de ventas, ejecutar el script 
-generate_report.py 
-en la carpeta src/.
+**data/** : Contiene los archivos de datos utilizados en el proyecto.
+**notebooks/** : Incluye los notebooks de Jupyter con el análisis y modelos.
+**src/** : Código fuente del proyecto, incluyendo scripts y módulos.
+**reports/** : Guarda los informes y visualizaciones generados.
+**README.md** : Archivo de documentación del proyecto.
+**requirements.txt** : librerias e instalaciones
 
 ### Datos y Fuentes
 Los datos utilizados provienen de dos csv proporcionados por el proyecto, que no se han incluido en el GitHub por motivos de memoria y almacenamiento. En cambio se subieron los csv limpios(transformados) con los que se pasaron las info al sistema de recomendacion. 
