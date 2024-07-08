@@ -4,12 +4,12 @@ from datetime import date
 import calendar
 import logging
 import numpy as np
-from ml import recomendar
+from src.ml import recomendar
 
 
 app = FastAPI()
 
-df = pd.read_csv('clean_movies.csv')
+df = pd.read_csv('data/clean_movies.csv')
     
 #hay que poner el autosave en vsc code para que se pueda ejecutar la API!!!!
 
