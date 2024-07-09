@@ -1,6 +1,4 @@
-from fastapi import FastAPI, HTTPException
 import pandas as pd
-from datetime import date
 import calendar
 import logging
 from sklearn.model_selection import train_test_split
@@ -8,8 +6,6 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 
-
-app = FastAPI()
 
 df1 = pd.read_csv('data/movie_rec.csv')
 
@@ -36,27 +32,28 @@ cosine_sim = cosine_similarity(tfidf_matrix, tfidf_matrix)
 
 # Creare una serie con gli indici dei titoli dei film
 indices = pd.Series(df1.index, index=df1['title']).drop_duplicates()
-
+indices = {row['title'].lower(): idx for idx, row in df1.iterrows()}
 
 
 #crear la api de una funcion para el sistema de recomendacion
 def recomendar(titulo: str):
-    # Ottieni l'indice del film dato il titolo
+    titulo_lower = titulo.lower()
+    # Obtener el index
     idx = indices[titulo]
     
-    # Ottieni il vettore di similarità per il film dato
+    # Obtener vector de similaridad
     sim_scores = list(enumerate(cosine_sim[idx]))
     
-    # Ordina i film in base al punteggio di similarità
+    # Ordenar peliculas con el score de similaridad
     sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
     
-    # Ottieni i punteggi delle 5 pellicole più simili
+    # Obtener puntaje peliculas similares
     sim_scores = sim_scores[1:6]
     
-    # Ottieni gli indici dei film
+    # Obtener indices
     movie_indices = [i[0] for i in sim_scores]
     
-    # Restituisci i titoli dei film raccomandati
+    # Restituir titulos
     recomendacion = df1['title'].iloc[movie_indices].tolist()
 
     return(recomendacion)
