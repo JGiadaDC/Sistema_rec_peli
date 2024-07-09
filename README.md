@@ -1,22 +1,20 @@
 # Sistema de recomendaciones de Peliculas
 
 ## Proyecto individual de Machine Learning 
-
-### Descripcion 
-Este proyecto tiene como objetivo desarrollar un modelo de ML que consista en un sistema de recomendaciones de peliculas. El modelo sugerirà a los usuarios peliculas similares a las que buscaron.
-
+### Estructura 
 - Descripcion 
 - Instalación y Requisitos
 - Estructura del Proyecto
-- Uso y Ejecución
 - Datos y Fuentes
 - Metodología
 - Resultados y Conclusiones
-- Contribución y Colaboración
-- Licencia
+- Autores
+
+### Descripcion 
+Este proyecto tiene como objetivo desarrollar un modelo de ML que consista en un sistema de recomendaciones de peliculas. El modelo sugerirà a los usuarios peliculas similares a las que buscan segùn el titulo ingresado.
 
 ### Instalación y Requisitos
-##### Requisitos
+##### Recursos y librerias utiles
 - Python
 - pandas
 - numpy
@@ -67,6 +65,7 @@ A seguir la fase de **ETL** , durante la cual se hicieron las transformaciones n
 Despues de las adecuadas transformaciones se crearon las funciones para los endpoints que se consuman en la API a traves de FastApi, y se guardaron en un file llamado **main.py**, cada una con su decorador  **(@app.get(‘/’))**.
 
 Una vez todo funcione en FastApi, seguimos con la fase de deployment en la cual se suben los archivos a Render para que la API pueda ser consumida desde la web.
+
 > > ***Mas info sobre Render*** ..
 1. Crear una cuenta en Render
 2. Elegir la opción *Web Service*
@@ -88,7 +87,7 @@ Con el nuevo dataset se procediò a la fase exploratoria **EDA** .
 Esta etapa incluyo:
 - descripción de las estadísticas básicas.
 - revisión de los tipos de datos y valores faltantes
--  identificaciòn de outliers
+- identificaciòn de outliers
 - distribución de las variables
 - relaciones entre variables
 - patrones y tendencias
@@ -106,13 +105,13 @@ Finalmente se creò la funcion para la api del sistema de recomendacion.
 
 > En el archivo main.py, guardamos solo los endpoints, mientras que las funciones seran importadas desde sus files.py (exactamente como hariamos al importar una libreria: 
 
-    from nombre_file.py import nombre_funcion)
+    from nombre_file.py import nombre_funcion
 
 Despues de deployar esta ultima API  se puede comprobar que todo funcione correctamente.
 
 ### Resultados y Conclusiones
 - Nuestro modelo de recomendacion està listo para consumirse en la web: al inserir el titulo de una pelicula que estè presente en nuestro dataset, nos devuelve una lista de 5 peliculas basadas en un score de similaridad.
-Esto podria ayudar el usuario a elegir  las peliculas basandose en sus intereses.
+Esto podria ayudar el usuario a elegir las peliculas basandose en sus intereses.
 
 ### Autores:
 Este proyecto fue realizado por:
