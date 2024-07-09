@@ -109,16 +109,18 @@ def votos_titulo(titulo: str):
     return mensaje
 
 
-
-
 @app.get("/actor/{nombre_actor}")
 def get_actor(nombre_actor: str):
-    # Lista per salvare le informazioni dei film in cui l'attore ha partecipato
+    #convertimos el nombre en minuscolas
+    nombre_actor_lower = nombre_actor.lower()
+    # Lista para guardar las peli donde el actor participo
     filmaciones_actor = []
 
     # Cerca l'attore nel DataFrame
     for idx, row in df.iterrows():
-        if nombre_actor in row['cast']:
+        #convertimos los nombres de la lisat in minuscolas
+        cast_lower = [actor.strip().lower() for actor in row['cast'].split(',')]
+        if nombre_actor_lower in cast_lower:
             filmaciones_actor.append(row)
 
     if not filmaciones_actor:
